@@ -7,13 +7,13 @@ module.exports = function (opts) {
 	'';
   var bodyScript = (opts.script && !opts.scriptAsync) ?
 	typeof(opts.script) == 'object' ?
-	opts.script.reduce((path, acc) => `${acc} <script src="${path}"></script>`, '') :
+	opts.script.reduce((acc, path) => `${acc} <script src="${path}"></script>`, '') :
 	`<script src="${opts.script}"></script>` :
 	'';
   var favicon = opts.favicon ? `<link rel="icon" href="${opts.favicon}">` : '';
   var css = opts.css ? 
 	typeof(opts.css) == 'object' ?
-	opts.css.reduce((path, acc) => `${acc} <link rel="stylesheet" href="${path}">`, '') :
+	opts.css.reduce((acc, path) => `${acc} <link rel="stylesheet" href="${path}">`, '') :
 	`<link rel="stylesheet" href="${opts.css}">` :
 	'';
   var lang = opts.lang || 'en';
